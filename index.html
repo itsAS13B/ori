@@ -1,0 +1,113 @@
+<head>
+
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ORI DE All Skills - No OOB/TA Progress</title>
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+	<!-- Load plotly.js into the DOM -->
+	<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+	<style>
+	body{
+	background: url("https://www.speedrun.com/themeasset/prdp27rn/background?v=d4f4cba");
+	background-position-y: -207px;
+	
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	background-repeat: repeat;
+	}
+	</style>
+</head>
+
+<body>
+<div class="row" style="width: 86%;height: 13px;padding-left: 26;padding-top: 26;"> <div class="col-md-1"> <a href="https://www.twitch.tv/as13b" target="_blank"> <img style="width: 222px;height: 39px;opacity: 0.7;" src="https://itsas13b.github.io/logo.png"> </a> </div>  </div>
+	<center>
+	<br><br><br>
+	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+	</center>
+<script>
+var lineShape = 'linear';
+var lucidus = {
+  x:['2016-12-25','2016-12-28','2017-01-10','2017-01-20','2017-01-27','2017-02-05','2017-02-06','2017-02-10','2017-02-14','2017-02-19','2017-03-01','2017-03-10','2017-05-02','2017-05-06','2017-05-10','2017-07-15','2017-10-10','2017-10-23','2017-11-19','2017-12-26','2018-01-16','2018-02-17','2018-02-23','2018-04-06','2018-04-30','2018-08-01','2018-08-10','2018-10-21','2018-10-26','2018-11-20','2018-11-23','2018-12-15','2019-01-04','2019-01-30','2019-01-31','2019-06-17','2019-06-17','2019-06-21','2019-09-27','2019-10-25','2020-02-01','2020-02-07','2020-02-12','2020-04-26','2020-12-04','2021-08-17','2021-08-25','2021-09-09','2022-03-31','2022-05-03','2022-10-24'],
+  y:['2627','2470','2234','2172','2137','2126','2119','2065','2056','2037','2020','1995','1907','1882','1878','1847','1802','1790','1785','1776','1766','1751','1744','1737','1727','1716','1710','1699','1689','1685','1679','1673','1669','1666','1663','1662','1660','1657','1653','1650','1649','1647','1646','1637','1630','1625','1621','1619','1617','1614','1608'],
+  type: 'scatter',mode: 'lines+markers' , line:{width:1.5 , shape: lineShape} ,
+  name:'Lucidus'
+};
+
+var rinsr = {
+x:['2020-08-10','2020-08-11','2020-08-16','2020-08-23','2020-10-08','2020-10-08','2021-01-18','2021-01-21','2021-01-24','2021-01-28','2021-02-01','2021-02-17','2021-02-18','2021-02-19','2021-02-28','2021-03-02','2021-04-30','2021-06-03','2021-07-05','2022-02-01','2022-02-26','2022-02-27','2022-03-30','2022-04-02','2022-05-12','2022-07-29'],
+y:['2676','2631','2555','2547','2422','2183','2137','2032','2026','1957','1918','1886','1880','1859','1820','1788','1740','1705','1687','1681','1679.610','1652','1648','1644','1624','1619'],
+  type: 'scatter',mode: 'lines+markers' , line:{width:1.5 , shape: lineShape} ,
+  name:'rinSR'
+};
+
+var speedron = {
+x:['2017-03-04','2017-03-18','2017-03-21','2017-03-28','2017-04-04','2017-04-12','2017-04-17','2017-05-13','2017-09-04','2017-09-26','2017-10-16','2017-11-10','2017-11-30','2017-12-03','2017-12-27','2018-02-07','2018-02-12','2018-02-13','2018-02-15','2018-02-17','2018-02-28','2018-04-18','2018-08-16','2018-08-20','2019-01-29','2021-04-30','2021-05-10','2022-03-21'], 
+y:['2285','2229','2167','2095','2082','2001','1971','1946','1910','1869','1807','1791','1786','1776.500','1765','1756','1754','1749','1739','1733','1723','1717','1705','1690','1673','1671.990','1646','1642'],
+  type: 'scatter',mode: 'lines+markers' , line:{width:1.5 , shape: lineShape} ,
+  name:'SpeedRon'
+};
+
+
+var layout = {
+  title: {
+    text:'ORI DE All Skills - No OOB/TA Progress (latest update 23 January 2023)',
+    font: {
+      family: 'Arial',
+      size: 24
+    },
+    xref: 'paper',
+    x: 0.05,
+  },
+  width: 1750,
+  height: 880,
+	  xaxis: {
+		title: 'D A T E',
+		type: 'date',
+		titlefont: {
+		  family: 'Arial',
+		  size: 13 }
+	  },
+	  yaxis: {
+		title: 'T I M E',
+		titlefont: {
+		  family: 'Arial',
+		  size: 13 }
+	  },
+ };
+ 
+var data=[lucidus,rinsr,speedron];
+Plotly.newPlot('myDiv', data , layout);
+
+<!-- // get player id -->
+<!-- var temprunID = 'yo3n425y'; -->
+<!-- var playersid = ''; -->
+<!-- for( var i = 0 ; i < res.length ; i++){  if( res[i].id == temprunID ) playersid = res[i]['players'][0].id ;  } -->
+<!-- // get player's runs -->
+<!-- var playerRs = new Array(); -->
+<!-- for( var i = 0 ; i < res.length ; i++){  if(res[i]['players'][0].id == playersid) playerRs.push(res[i]);  } playerRs.reverse(); -->
+<!-- //get dates -->
+<!-- var playerDs = ''; -->
+<!-- for( var i = 0 ; i < playerRs.length ; i++){ playerDs += '\''+playerRs[i].submitted.split('T')[0]+'\','; } -->
+<!-- //get times -->
+<!-- var playerTs = ''; -->
+<!-- for( var i = 0 ; i < playerRs.length ; i++){  -->
+<!-- if( playerRs[i]['times']['ingame'] != null ){ var mins = parseFloat( playerRs[i]['times']['ingame'].split('T')[1].split('M')[0] ); var seconds = parseFloat( playerRs[i]['times']['ingame'].split('T')[1].split('M')[1].split('S')[0] ); } -->
+<!-- else -->
+<!-- {var mins = parseFloat( playerRs[i]['times']['primary'].split('T')[1].split('M')[0] ); var seconds = parseFloat( playerRs[i]['times']['primary'].split('T')[1].split('M')[1].split('S')[0] );} -->
+<!-- var tempT = mins*60 + seconds; -->
+<!-- playerTs += '\'' + tempT + '\','  ;} -->
+<!-- console.log('x: ['+playerDs+ '],\ny: ['+playerTs+'],\n');  -->
+
+
+</script>
+</body>
