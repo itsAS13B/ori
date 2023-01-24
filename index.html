@@ -105,9 +105,41 @@ y:['2522','2401','2373','2316','2197','2134','2076.070','2057','1982','1940','18
   hovertemplate:"%{y|%M:%S.%L}"
 }
 
+var vulajin = {
+x:['2016-03-12','2016-09-10','2016-12-20','2017-01-20','2017-02-03','2017-02-19','2017-03-24','2017-03-29','2017-09-09','2017-09-20','2017-09-28','2018-01-22','2018-02-19','2018-03-04','2018-03-11','2018-03-20','2018-03-27','2018-04-07','2018-12-02','2019-03-02'],
+y:['2885','2403','2287','2215','2096.780','2082','2046','2032','2009','1972','1896','1849','1840','1832','1824','1823','1813','1800','1789','1782'].map(seconds_to_time),
+  type: 'scatter',mode: 'lines+markers' , line:{width:1.5 , shape: lineShape} ,
+  name:'Vulajin',
+  hovertemplate:"%{y|%M:%S.%L}"
+}
+
+var hetfield = {
+x:['2016-12-02','2016-12-06','2016-12-09','2016-12-09','2016-12-10','2016-12-12','2016-12-17','2017-02-01','2017-02-04','2017-04-15','2017-05-10'],
+y:['2003','1966','1963','1934','1922','1917','1909','1906','1869','1859.999','1799'].map(seconds_to_time),
+  type: 'scatter',mode: 'lines+markers' , line:{width:1.5 , shape: lineShape} ,
+  name:'Hetfield90',
+  hovertemplate:"%{y|%M:%S.%L}"
+}
+
+var absogami = {
+x:['2019-02-23','2020-02-13','2020-02-16','2020-02-23','2020-05-31','2020-06-06','2020-06-15','2020-12-11','2022-04-07','2022-06-06'],
+y:['2314','2274','2162','2137','2082','2060','1968','1905','1822','1781'].map(seconds_to_time),
+  type: 'scatter',mode: 'lines+markers' , line:{width:1.5 , shape: lineShape} ,
+  name:'Absogami',
+  hovertemplate:"%{y|%M:%S.%L}"
+}
+
+var og1764 = {
+x:['2018-02-18','2018-02-26','2018-02-28','2018-03-14','2018-07-23','2018-11-05','2018-11-09','2018-11-23','2018-12-02','2019-01-13','2019-02-11','2019-09-19','2020-02-09','2022-03-13'],
+y:['2679','2577','2474','2313','2220','2163','2133','2109','2088','2033','2000','1968','1891.900','1878'].map(seconds_to_time),
+  type: 'scatter',mode: 'lines+markers' , line:{width:1.5 , shape: lineShape} ,
+  name:'og1764',
+  hovertemplate:"%{y|%M:%S.%L}"
+}
+
 var layout = {
   title: {
-    text:'ORI DE All Skills - No OOB/TA Progress (latest update 23 January 2023)',
+    text:'ORI DE All Skills - No OOB/TA Progress (latest update 24 January 2023)',
     font: {
       family: 'Arial',
       size: 24
@@ -134,7 +166,7 @@ var layout = {
 	  },
  };
  
-var data=[lucidus,rinsr,speedron,primorix,hitachihex,willson,daroka,enri];
+var data=[lucidus,rinsr,speedron,primorix,hitachihex,willson,daroka,enri,vulajin,hetfield,absogami,og1764];
 Plotly.newPlot('myDiv', data , layout);
 
 </script>
